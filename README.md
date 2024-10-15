@@ -10,6 +10,7 @@ This guide will help you quickly get started with YD-ESP32-S3 and provide detail
 YD-ESP32-S3 is an entry-level development board equipped with Wi-Fi + Bluetooth® LE module ESP32-S3-WROOM-1.
 
 Most of the pins of the modules on the board have been brought out to the pin headers on both sides of the development board. Developers can easily connect a variety of peripheral devices through jumpers according to actual needs, or plug the development board into a breadboard for use.
+
 ![img](/IMG/YD-ESP32-S3.PNG)
 
 1. This is the smallest core board of ESP32-S3, using the ESP32-S3 module of Espressif.
@@ -22,7 +23,7 @@ Most of the pins of the modules on the board have been brought out to the pin he
 
 ![](/IMG/img2.png)
 
-| 主要组件                                 | 介绍                                                         |
+| Main Components                                 | Information                                                         |
 | :--------------------------------------- | ------------------------------------------------------------ |
 | ESP32-S3-WROOM-1 | ESP32-S3-WROOM-1 is a general-purpose Wi-Fi + Bluetooth low energy MCU module with rich peripheral interfaces, powerful neural network computing power and signal processing capabilities, designed for the artificial intelligence and AIoT markets. ESP32-S3-WROOM-1 uses a PCB onboard antenna. |
 | 5 V to 3.3 V LDO | Power converter, input 5 V, output 3.3 V, current is 1A |
@@ -38,14 +39,14 @@ Most of the pins of the modules on the board have been brought out to the pin he
 | RX LED | The led on the serial port RXD line of ESP32-S3, when serial port data is received, the LED flashes, if the serial port function is not used, it can be used as GPIO, GPIO44 |
 
 
-###### 备注:
+###### Remark:
 
-在板载 ESP32-S3-WROOM-1 模组系列（使用 8 线 SPI flash/PSRAM）的开发板，管脚 GPIO35、GPIO36 和 GPIO37 已用于内部 ESP32-S3 芯片与 SPI flash/PSRAM 之间的通信，外部不可使用。
+On development boards with the ESP32-S3-WROOM-1 module series (using 8-wire SPI flash/PSRAM), pins GPIO35, GPIO36, and GPIO37 are used for communication between the internal ESP32-S3 chip and the SPI flash/PSRAM and are not available externally.
 
 
 
-###### 开始开发应用:
-通电前，请确保开发板完好无损。
+###### Start developing your application:
+Before powering on, make sure the development board is in good condition.
 
 
 
@@ -56,21 +57,21 @@ YD-ESP32-S3 的主要组件和连接方式如下图所示：
 
 
 
-###### 电源选项:
-您可从以下三种供电方式中任选其一给开发板供电：
+###### Power Options:
+You can choose to power the board from one of the following three power supply methods:
 
-USB 转 UART 接口供电或 ESP32-S3 USB 接口供电（选择其一或同时供电），默认供电方式（推荐）
+USB to UART interface power supply or ESP32-S3 USB interface power supply (choose one or both), default power supply method (recommended)
 
-5V 和 G (GND) 排针供电
+5V and G (GND) pin header power supply
 
-3V3 和 G (GND) 排针供电
+3V3 and G (GND) pin header power supply
 
-###### 排针:
-下表列出了开发板两侧排针（P1 和 P2）的 名称 和 功能，排针的名称如图 YD-ESP32-S3正面 所示，排针的序号与 开发板原理图 (PDF) 一致。
+###### Pin headers:
+The following table lists the names and functions of the pin headers (P1 and P2) on both sides of the board. The names of the pin headers are shown in the front of the YD-ESP32-S3 figure, and the pin numbering is consistent with the board schematic (PDF).
 
 ###### P1
 
-| 序号 | 名称 | 类型  | 功能                                                         |
+| Pin Number | Pin Name | Type  | Information                                                         |
 | ---- | ---- | ----- | ------------------------------------------------------------ |
 | 1    | 3V3  | P     | 3.3 V 电源                                                   |
 | 2    | 3V3  | P     | 3.3 V 电源                                                   |
@@ -97,7 +98,7 @@ USB 转 UART 接口供电或 ESP32-S3 USB 接口供电（选择其一或同时�
 
 ###### P2
 
-| 序号 | 名称 | 类型  | 功能                                                  |
+| Pin Number | Pin Name | Type | Information                                                 |
 | ---- | ---- | ----- | ----------------------------------------------------- |
 | 1    | G    | G     | 接地                                                  |
 | 2    | TX   | I/O/T | U0TXD, GPIO43, CLK_OUT1                               |
