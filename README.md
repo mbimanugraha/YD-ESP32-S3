@@ -1,23 +1,22 @@
 # YD-ESP32-S3 Core Board 
 
 ###### 简介：
-
-YD-ESP32-S3核心板由源地工作室（VCC-GND Studio）设计，有需要可以浏览www.vcc-gnd.com 获取购买。该设备使用ESP32-S3芯片，可以用于物联网应用的测试原型机也就可以用于实际应用，配有两个usb一个是硬件的usb转串口(CH343P WCH 沁恒)，一个是ESP32-S3的usb口。
+The YD-ESP32-S3 core board is designed by VCC-GND Studio. If you need it, you can visit www.vcc-gnd.com to purchase it. The device uses the ESP32-S3 chip and can be used as a test prototype for IoT applications and can also be used for practical applications. It is equipped with two USB ports, one is a hardware USB to serial port (CH343P WCH Qinheng), and the other is the USB port of ESP32-S3.
 
 ![](/IMG/img1.PNG)
 
-本指南将帮助您快速上手 YD-ESP32-S3，并提供该款开发板的详细信息。
+This guide will help you quickly get started with YD-ESP32-S3 and provide detailed information about the development board.
 
-YD-ESP32-S3 是一款入门级开发板，搭载 Wi-Fi + Bluetooth® LE 模组 ESP32-S3-WROOM-1。
+YD-ESP32-S3 is an entry-level development board equipped with Wi-Fi + Bluetooth® LE module ESP32-S3-WROOM-1.
 
-板上模组的大部分管脚均已引出至开发板两侧排针，开发人员可根据实际需求，轻松通过跳线连接多种外围设备，也可将开发板插在面包板上使用。
+Most of the pins of the modules on the board have been brought out to the pin headers on both sides of the development board. Developers can easily connect a variety of peripheral devices through jumpers according to actual needs, or plug the development board into a breadboard for use.
 ![img](/IMG/YD-ESP32-S3.PNG)
 
-1、这就是一个ESP32-S3的最小核心板，使用时乐鑫公司的ESP32-S3模块。
-2、无线功能专用的LDO电路，不用担心电流（功率）不够用的情况。
-3、配有一颗WS2812-RGB LED(注意并不是通过GPIO直接点亮)。
-4、RST按键用于外部复位功能，boot按键（配合rst按键可以引导进入bootloard 模式，在复位后可以当做用户按键，就是GPIO0）。
-5、你会发现板子有两个TYPE-C接口（一个是直连usb（GPIO19 GPIO20）,另一个是USB转串口的usb口），配有硬件的usb转串口芯片（CH343）。
+1. This is the smallest core board of ESP32-S3, using the ESP32-S3 module of Espressif.
+2. The LDO circuit is dedicated to the wireless function, so there is no need to worry about insufficient current (power).
+3. It is equipped with a WS2812-RGB LED (note that it is not directly lit through GPIO).
+4. The RST button is used for external reset function and boot button (with the RST button, it can be used as a user button after reset, which is GPIO0).
+5. You will find that the board has two TYPE-C interfaces (one is directly connected to USB (GPIO19 GPIO20), and the other is a USB to serial port USB port), equipped with a hardware USB to serial port chip (CH343).
 
 ###### 硬件介绍：
 
@@ -25,19 +24,18 @@ YD-ESP32-S3 是一款入门级开发板，搭载 Wi-Fi + Bluetooth® LE 模组 E
 
 | 主要组件                                 | 介绍                                                         |
 | :--------------------------------------- | ------------------------------------------------------------ |
-| ESP32-S3-WROOM-1                         | ESP32-S3-WROOM-1 是通用型 Wi-Fi + 低功耗蓝牙 MCU 模组，具有丰富的外设接口、强大的神经网络运算能力和信号处理能力，专为人工智能和 AIoT 市场打造。ESP32-S3-WROOM-1  采用 PCB 板载天线。 |
-| 5 V to 3.3 V LDO（5 V 转 3.3 V LDO）     | 电源转换器，输入 5 V，输出 3.3 V,电流为1A                    |
-| Pin Headers（排针）                      | 所有可用 GPIO 管脚（除 flash 的 SPI 总线）均已引出至开发板的排针。 |
-| USB-to-UART Port（USB 转 UART 接口）     | Type-c-USB 接口，可用作开发板的供电接口，可烧录固件至芯片，也可作为通信接口，通过板载 USB 转 UART 桥接器与芯片通信。 |
-| Boot Button（Boot 键）                   | 下载按键。按住 **Boot** 键的同时按一下 **Reset** 键进入“固件下载”模式，通过串口下载固件。如果启动完毕可以当做普通的输入按键使用，使用到的IO为GPIO0。 |
-| Reset Button（Reset 键）                 | 复位按键。                                                   |
-| USB Port（USB 接口）                     | ESP32-S3 USB OTG 接口，支持全速 USB 1.1 标准。ESP32-S3 USB 接口可用作开发板的供电接口，可烧录固件至芯片，可通过 USB 协议与芯片通信，也可用于 JTAG 调试。 |
-| USB-to-UART Bridge（USB 转 UART 桥接器） | 芯片为CH343P,厂商为沁恒，网址为http://www.wch-ic.com/ 驱动：http://www.wch-ic.com/products/CH343.html? |
-| RGB LED                                  | 可寻址 RGB 发光二极管，由 GPIO48 驱动。型号为WS2812。        |
-| PWR LED                                  | 电源指示灯，板子供电后，亮起，不可以程序控制。               |
-| TX LED                                   | ESP32-S3的串口TXD线路上的led,当有串口数据发出时，LED闪烁，如果不使用串口功能可以当做GPIO使用,GPIO43 |
-| RX LED                                   | ESP32-S3的串口RXD线路上的led,当有串口数据接收时，LED闪烁，如果不使用串口功能可以当做GPIO使用，GPIO44 |
-
+| ESP32-S3-WROOM-1 | ESP32-S3-WROOM-1 is a general-purpose Wi-Fi + Bluetooth low energy MCU module with rich peripheral interfaces, powerful neural network computing power and signal processing capabilities, designed for the artificial intelligence and AIoT markets. ESP32-S3-WROOM-1 uses a PCB onboard antenna. |
+| 5 V to 3.3 V LDO | Power converter, input 5 V, output 3.3 V, current is 1A |
+| Pin Headers | All available GPIO pins (except the flash SPI bus) are led out to the pin headers of the development board.  |
+| USB-to-UART Port | Type-c-USB port, which can be used as the power supply port of the development board, can be used to burn firmware to the chip, and can also be used as a communication port to communicate with the chip through the onboard USB to UART bridge. |
+| Boot Button | Download button. Press the **Boot** key and the **Reset** key to enter the "Firmware Download" mode and download the firmware through the serial port. If the boot is complete, it can be used as a normal input key, and the IO used is GPIO0. |
+| Reset Button | Reset button. |
+| USB Port | ESP32-S3 USB OTG port, supporting full-speed USB 1.1 standard. The ESP32-S3 USB port can be used as the power supply port of the development board, can be used to burn firmware to the chip, can communicate with the chip through the USB protocol, and can also be used for JTAG debugging.  |
+| USB-to-UART Bridge | The chip is CH343P, the manufacturer is Qinheng, the website is http://www.wch-ic.com/ Driver: http://www.wch-ic.com/products/CH343.html? |
+| RGB LED | Addressable RGB light-emitting diode, driven by GPIO48. Model is WS2812. |
+| PWR LED | Power indicator light, lights up after the board is powered, and cannot be controlled by the program. |
+| TX LED | The led on the serial port TXD line of ESP32-S3, when serial port data is sent, the LED flashes, if the serial port function is not used, it can be used as GPIO, GPIO43 |
+| RX LED | The led on the serial port RXD line of ESP32-S3, when serial port data is received, the LED flashes, if the serial port function is not used, it can be used as GPIO, GPIO44 |
 
 
 ###### 备注:
