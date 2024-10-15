@@ -123,78 +123,76 @@ The following table lists the names and functions of the pin headers (P1 and P2)
 | 21   | G    | G     | 接地                                                  |
 | 22   | G    | G     | 接地                                                  |
 
-P：电源；I：输入；O：输出；T：可设置为高阻。
+P: power supply; I: input; O: output; T: can be set to high impedance.
 
-###### 引脚图：
+###### Pin Diagram:
 
 ![](/IMG/img11.jpg)
 
-###### CH340芯片的驱动官方链接：
+###### Official link of CH340 chip driver:
 
 http://www.wch-ic.com/products/CH340.html?        ENGLISH
 
 https://www.wch.cn/products/CH340.html?from=list     中文
 
-Micropython固件下载：
+Micropython Firmware Download:
 
-ESP32-S3的下载擦除工具软件flash_download_tool_3.9.2_0在win下downloard tool。
-注意：无需安装解压既用，双击小齿轮标志，选择ESP32-S3，develop，USART，剩下看图片，注意起始地址为0x00，前面打对号。如果不能下载可能是USB转串口驱动没有安好，先处理好驱动问题再来下载。
+ESP32-S3 download erase tool software flash_download_tool_3.9.2_0 in Windows download tool.
+Note: No need to install and unzip, double-click the small gear icon, select ESP32-S3, develop, USART, and look at the picture. Note that the starting address is 0x00, check the front. If you can't download, it may be that the USB to serial port driver is not installed. Solve the driver problem first and then download.
 
 ![](/IMG/img3.png)
+Note:
 
-注意：
+You cannot use the so-called ESP32 downloader provided by thonny to download micropython firmware for ESP32-S3 (the one provided by thonny is for esp32 download, the model is not esp32-s3 and the address is not 0x00 of S3 but 0x1000 of ESP32), nor can you use the firmware with SPRAM officially downloaded by micropython, which cannot be used normally after downloading. The correct download method is to use the official flash tool download tool of Espressif, select ESP32-S3 serial port download (USART), insert the USB of the COM port of the board, select the corresponding firmware (the firmware adapted by our source), the starting address is 0x00, check the firmware before selecting it, it is best to erase it before downloading.
+The firmware is linked at the beginning of 1- and the firmware download software is linked at the beginning of 2-. Please note that it is best to update the hardware driver of CH343usb to serial port before use. The precautions are in the data link at the beginning of 0-. Confirm that there is the word COM of CH343 in the device manager.
 
-不能用thonny自带的所谓的ESP32下载器给ESP32-S3下载micropython固件(thonny自带的是给esp32下载的，型号并不是esp32-s3  地址也并不是S3的0x00而是ESP32的0x1000)，也不能使用micropython官方下载的带SPRAM固件，下载后也不能正常使用，正确的下载方式是使用乐鑫官方的flash tool下载工具，选择ESP32-S3 串口下载（USART）插入板子的COM端口的usb，选择对应的固件（我们源地自己改编的固件）起始地址是0x00 固件选择前打对号，最好先擦除再下载。
-固件是1-开头链接的和固件下载软件是2-开头的链接，注意使用前最好更新一下CH343usb转串口的硬件驱动，注意事项在0-开头的资料链接中，在设备管理器中确认出现有……CH343字样COM才行。
-
-如果下载TASMOTA固件，TASMOTA官方有自己的web下载。
+ If you want to download TASMOTA firmware, TASMOTA has its own official web download.
 
 https://tasmota.github.io/docs/
 
-如果你下载自己的固件文件可以使用乐鑫的下载工具。
+If you download your own firmware file, you can use Espressif's download tool.
 
 https://www.espressif.com.cn/en/home
 
-这段文字是ESP32-S3的资料。 基础资料包括（硬件串口CH343驱动，源地版本micropython固件，下载固件的软件、micropython的IDE、原理图尺寸图等）：http://124.222.62.86/yd-data/YD-ESP32-S3/ 
+This text is the information of ESP32-S3.  Basic information includes (hardware serial port CH343 driver, source version micropython firmware, software for downloading firmware, micropython IDE, schematic diagram, etc.): http://124.222.62.86/yd-data/YD-ESP32-S3/ 
 
-如果计划使用官方的idf-C语言编程详细资料链接（例程就是的API参考）： https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32s3/get-started/index.html 
+If you plan to use the official idf-C language programming detailed information link (the routine is the API reference): https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32s3/get-started/index.html 
 
-如果计划使用Ardiuno编程资料链接： https://docs.espressif.com/projects/arduino-esp32/en/latest/getting_started.html#about-arduino-esp32 
+If you plan to use Ardiuno programming information link: https://docs.espressif.com/projects/arduino-esp32/en/latest/getting_started.html#about-arduino-esp32 
 
-如果计划使用micropython语言编程资料链接如下（注意快速入门看ESP32就行）： https://docs.micropython.org/en/latest/esp32/quickref.html
-###### 山寨/假冒/劣质仿造的问题：
+If you plan to use micropython language programming information link as follows (note that the quick start is to see ESP32):  https://docs.micropython.org/en/latest/esp32/quickref.html
+###### Problems with copycat/fake/poor-quality imitations:
 
-寨/假冒/劣质仿造我们源地（YD）开发板有很多，以深圳华强北最为猖獗，山寨者惯用的形式为直接打磨我们的开发板进行拍照抄板，以致山寨的产品隐患重重。现总结购买山寨板的危害（隐患）。
-以YD-ESP32（ESP32/S2/S3/C3）系列为例：
+There are many copycat/fake/poor-quality imitations of our source (YD) development boards, and the most rampant one is Shenzhen Huaqiangbei. The usual form of copycats is to directly polish our development boards and take photos to copy the boards, resulting in many hidden dangers in copycat products. Now we summarize the hazards (hidden dangers) of buying copycat boards.
+ Take the YD-ESP32 (ESP32/S2/S3/C3) series as an example:
 
-1、山寨厂家为进一步追求利润，往往使用翻新，非官方器件，任意替换为同封装的廉价型号，乱选型，图利润
+1. In order to further pursue profits, copycat manufacturers often use refurbished, unofficial devices, arbitrarily replace them with cheap models with the same package, randomly select models, and seek profits
 
-2、2812灯不焊接信号，无法使用2812，从侧面印证抄袭者不检查板子，图省事，压成本
+2. The 2812 light does not weld signals, and 2812 cannot be used. This indirectly proves that the plagiarist does not check the board, saves trouble, and reduces costs
 
-3、山寨板出厂不检查（压缩成本），下完生产线就包装，发给消费者，省环节，图利润
+3. The copycat board is not inspected before leaving the factory (cost reduction), and it is packaged and sent to consumers after the production line, saving links and seeking profits
 
-4、山寨板由于照片抄袭，多处丝印抄错，容易误导消费者，抄袭者自己都搞不明白
+4. The copycat board is copied from photos, and many silk screens are copied incorrectly, which is easy to mislead consumers, and the plagiarists themselves can't figure it out
 
-5、山寨板抄袭是1.2版本是2022年早期版本，正版是1.4版本，山寨无法使用更新的功能，图省事不改进
+5. The copycat board is copied from version 1.2, which is an early version in 2022. The genuine version is version 1.4. The copycat cannot use the updated functions, and it saves trouble without improvement
 
-6、山寨板使用的是第三方“山寨”模组（成本低），山寨模组没有经过阻抗匹配，在使用WIFI 蓝牙时候，功耗高信号差、易死机
+6. The copycat board uses a third-party "copycat" module (low cost). The copycat module has not been impedance matched and is not used when using WIFI  When using Bluetooth, the power consumption is high, the signal is poor, and the system crashes easily.
 
-7、山寨板由于在市面上找不到我们用专用LDO，就任意选择不合适型号，例如1117（成本低），压差大，易死机，信号差
+7. Since the copycat board cannot find our dedicated LDO on the market, it arbitrarily chooses inappropriate models, such as 1117 (low cost), with large voltage difference, easy to crash, and poor signal.
 
-8、山寨板使用高压差的二极管（大于0.7V管压降，成本低），造成后端LDO压差不足，进一步造成功耗高，易死机，信号差
+8. The copycat board uses a high-voltage difference diode (greater than 0.7V tube voltage drop, low cost), which causes insufficient voltage difference of the back-end LDO, further causing high power consumption, easy to crash, and poor signal.
 
-9、山寨板不提供基本技术，就连资料都是直接复制我们的（资料还是我们早期的，最新资料山寨者都懒得找），钱收后，就不管了
+9. The copycat board does not provide basic technology, and even the information is directly copied from us (the information is still our early information, and the copycats are too lazy to find the latest information). After receiving the money, they don’t care.
 
-10、山寨板启动有时候有问题，直接进入BootLoader，造成无法使用，山寨者都不明白这是什么问题！
+10. Sometimes there is a problem when the copycat board starts, and it directly enters the BootLoader, causing it to be unusable. The copycats don’t understand what the problem is!
 
-11、山寨板仿冒者由于是照片抄板，所以没有原理图，让用户搞不懂如何使用，山寨者也不懂，造成产品难以使用。
+11. Since the copycat board counterfeiters copy the board from photos, there is no schematic diagram, which makes users unable to understand how to use it, and the copycats don’t understand it either, making the product difficult to use.
 
+ Some counterfeiters directly print words such as YD-ESP32 on the counterfeit boards to confuse the public. What's worse, some even print our official website WWW.VCC-GND.COM on the counterfeit products. This behavior has triggered relevant laws and we will definitely investigate. Consumers are requested not to take the above risks for the sake of a few cents or a few dollars of temporary cheapness, wasting time and energy in vain. Support the source and support the genuine products. Please identify the source and VCC-GND trademark when purchasing.
 
-有山寨者直接在山寨板子上印有YD-ESP32等字样以此来混淆视听，更有甚者，将我们官方网址WWW.VCC-GND.COM印在山寨仿冒品上，该行为已经触发相关法律，我们定会追究，请广大消费者不要贪图几毛钱~几块的一时便宜而承担以上种种风险，白白浪费时间和精力，支持源地支持正品，购买请认准源地，VCC-GND商标。
+###### Any function on the pin can be realized through the internal switching matrix:
 
-###### 通过内部交换矩阵可以实现引脚上的任意功能：
-
-在各种ESP32系列文档介绍中注明了具备各种外设通讯功能例如I2C、I2S、UART、SPI等。但是又在功能引脚上示意图没有标注这些功能是哪个引脚。这个疑问在外设管脚分配中得到了解答，诸如I2C、I2S、UART、SPI等外设接口可以被定义为任意GPIO管脚，所以就没有必要在 功能示意图上标注出来了，反正任何一个GPIO都可以赋予这些外设接口I2C、I2S、UART、SPI功能所需要的引脚某个引脚功能。
+In the introduction of various ESP32 series documents, it is noted that it has various peripheral communication functions such as I2C, I2S, UART, SPI, etc. However, the schematic diagram on the functional pins does not indicate which pins these functions are.  This question is answered in the peripheral pin allocation. Peripheral interfaces such as I2C, I2S, UART, SPI, etc. can be defined as any GPIO pin, so there is no need to mark them on the functional diagram. Anyway, any GPIO can be assigned a pin function required by the I2C, I2S, UART, SPI functions of these peripheral interfaces.
 
 
 
