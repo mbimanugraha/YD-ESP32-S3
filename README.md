@@ -19,7 +19,7 @@ Most of the pins of the modules on the board have been brought out to the pin he
 4. The RST button is used for external reset function and boot button (with the RST button, it can be used as a user button after reset, which is GPIO0).
 5. You will find that the board has two TYPE-C interfaces (one is directly connected to USB (GPIO19 GPIO20), and the other is a USB to serial port USB port), equipped with a hardware USB to serial port chip (CH343).
 
-###### 硬件介绍：
+###### Hardware Introduction:
 
 ![](/IMG/img2.png)
 
@@ -50,8 +50,8 @@ Before powering on, make sure the development board is in good condition.
 
 
 
-###### 功能框图：
-YD-ESP32-S3 的主要组件和连接方式如下图所示：
+###### Functional block diagram:
+The main components and connections of YD-ESP32-S3 are shown in the figure below:
 
 ![](/IMG/img4.png)
 
